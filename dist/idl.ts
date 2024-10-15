@@ -1,150 +1,153 @@
-{
+const fundsSchema = {
     version: "0.1.0",
     name: "funds",
-    instructions: [{
+    instructions: [
+        {
             name: "createFund",
             accounts: [{
-                    name: "manager",
-                    isMut: False,
-                    isSigner: False
-                },
-                {
-                    name: "tokenInfo",
-                    isMut: True,
-                    isSigner: True
-                },
-                {
-                    name: "fundState",
-                    isMut: False,
-                    isSigner: True
-                },
-                {
-                    name: "pdaAccount",
-                    isMut: True,
-                    isSigner: True
-                },
-                {
-                    name: "fundToken",
-                    isMut: False,
-                    isSigner: False
-                },
-                {
-                    name: "createFeeSweeper",
-                    isMut: False,
-                    isSigner: True
-                },
-                {
-                    name: "systemProgram",
-                    isMut: True,
-                    isSigner: True
-                },
-                {
-                    name: "tokenProgram",
-                    isMut: True,
-                    isSigner: True
-                },
-                {
-                    name: "rent",
-                    isMut: True,
-                    isSigner: True
-                }
+                name: "manager",
+                isMut: false,
+                isSigner: false
+            },
+            {
+                name: "tokenInfo",
+                isMut: true,
+                isSigner: true
+            },
+            {
+                name: "fundState",
+                isMut: false,
+                isSigner: true
+            },
+            {
+                name: "pdaAccount",
+                isMut: true,
+                isSigner: true
+            },
+            {
+                name: "fundToken",
+                isMut: false,
+                isSigner: false
+            },
+            {
+                name: "createFeeSweeper",
+                isMut: false,
+                isSigner: true
+            },
+            {
+                name: "systemProgram",
+                isMut: true,
+                isSigner: true
+            },
+            {
+                name: "tokenProgram",
+                isMut: true,
+                isSigner: true
+            },
+            {
+                name: "rent",
+                isMut: true,
+                isSigner: true
+            }
             ],
             args: [{
-                    name: "messageDigestFive",
-                    type: {
-                        array: ["u8", 16]
-                    }
-                },
-                {
-                    name: "managerFee",
-                    type: "u64"
-                },
-                {
-                    name: "hostPubkey",
-                    type: "publicKey"
-                },
-                {
-                    name: "hostFee",
-                    type: "u64"
-                },
-                {
-                    name: "activelyManaged",
-                    type: "u64"
-                },
-                {
-                    name: "assetPool",
-                    type: {
-                        array: ["u8", 256]
-                    }
-                },
-                {
-                    name: "refilterInterval",
-                    type: "u64"
-                },
-                {
-                    name: "reweightInterval",
-                    type: "u64"
-                },
-                {
-                    name: "rebalanceInterval",
-                    type: "u64"
-                },
-                {
-                    name: "rebalanceThreshold",
-                    type: "u64"
-                },
-                {
-                    name: "rebalanceSlippage",
-                    type: "u64"
-                },
-                {
-                    name: "lpOffsetThreshold",
-                    type: "u64"
-                },
-                {
-                    name: "fundLpFee",
-                    type: "u64"
+                name: "messageDigestFive",
+                type: {
+                    array: ["u8", 16]
                 }
+            },
+            {
+                name: "managerFee",
+                type: "u64"
+            },
+            {
+                name: "hostPubkey",
+                type: "publicKey"
+            },
+            {
+                name: "hostFee",
+                type: "u64"
+            },
+            {
+                name: "activelyManaged",
+                type: "u64"
+            },
+            {
+                name: "assetPool",
+                type: {
+                    array: ["u8", 256]
+                }
+            },
+            {
+                name: "refilterInterval",
+                type: "u64"
+            },
+            {
+                name: "reweightInterval",
+                type: "u64"
+            },
+            {
+                name: "rebalanceInterval",
+                type: "u64"
+            },
+            {
+                name: "rebalanceThreshold",
+                type: "u64"
+            },
+            {
+                name: "rebalanceSlippage",
+                type: "u64"
+            },
+            {
+                name: "lpOffsetThreshold",
+                type: "u64"
+            },
+            {
+                name: "fundLpFee",
+                type: "u64"
+            }
             ]
         },
         {
             name: "closeFund",
-            accounts: [{
-                name: "manager",
-                isMut: False,
-                isSigner: False
-            }, {
-                name: "fundToken",
-                isMut: False,
-                isSigner: True
-            }, {
-                name: "fundState",
-                isMut: False,
-                isSigner: True
-            }, {
-                name: "pdaAccount",
-                isMut: True,
-                isSigner: True
-            }, {
-                name: "systemProgram",
-                isMut: True,
-                isSigner: True
-            }, {
-                name: "tokenProgram",
-                isMut: True,
-                isSigner: True
-            }],
+            accounts: [
+                {
+                    name: "manager",
+                    isMut: false,
+                    isSigner: false
+                }, {
+                    name: "fundToken",
+                    isMut: false,
+                    isSigner: true
+                }, {
+                    name: "fundState",
+                    isMut: false,
+                    isSigner: true
+                }, {
+                    name: "pdaAccount",
+                    isMut: true,
+                    isSigner: true
+                }, {
+                    name: "systemProgram",
+                    isMut: true,
+                    isSigner: true
+                }, {
+                    name: "tokenProgram",
+                    isMut: true,
+                    isSigner: true
+                }
+            ],
             args: []
         }, {
             name: "setRules",
             accounts: [{
                 name: "manager",
-                isMut: False,
-                isSigner: False
+                isMut: false,
+                isSigner: false
             }, {
                 name: "fundState",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }],
             args: [{
                 name: "numOfRules",
@@ -168,137 +171,137 @@
         }, {
             name: "fundEdit",
             accounts: [{
-                    name: "manager",
-                    isMut: False,
-                    isSigner: False
-                }, {
-                    name: "tokenInfo",
-                    isMut: True,
-                    isSigner: True
-                }, {
-                    name: "fundState",
-                    isMut: False,
-                    isSigner: True
-                }
+                name: "manager",
+                isMut: false,
+                isSigner: false
+            }, {
+                name: "tokenInfo",
+                isMut: true,
+                isSigner: true
+            }, {
+                name: "fundState",
+                isMut: false,
+                isSigner: true
+            }
 
             ],
             args: [{
-                    name: "messageDigestFive",
-                    type: {
-                        array: ["u8", 16]
-                    }
-                },
-                {
-                    name: "managerFee",
-                    type: "u64"
-                },
-                {
-                    name: "activelyManaged",
-                    type: "u64"
-                },
-                {
-                    name: "assetPool",
-                    type: {
-                        array: ["u8", 256]
-                    }
-                },
-                {
-                    name: "refilterInterval",
-                    type: "u64"
-                },
-                {
-                    name: "reweightInterval",
-                    type: "u64"
-                },
-                {
-                    name: "rebalanceInterval",
-                    type: "u64"
-                },
-                {
-                    name: "rebalanceThreshold",
-                    type: "u64"
-                },
-                {
-                    name: "rebalanceSlippage",
-                    type: "u64"
-                },
-                {
-                    name: "lpOffsetThreshold",
-                    type: "u64"
-                },
-                {
-                    name: "fundLpFee",
-                    type: "u64"
+                name: "messageDigestFive",
+                type: {
+                    array: ["u8", 16]
                 }
+            },
+            {
+                name: "managerFee",
+                type: "u64"
+            },
+            {
+                name: "activelyManaged",
+                type: "u64"
+            },
+            {
+                name: "assetPool",
+                type: {
+                    array: ["u8", 256]
+                }
+            },
+            {
+                name: "refilterInterval",
+                type: "u64"
+            },
+            {
+                name: "reweightInterval",
+                type: "u64"
+            },
+            {
+                name: "rebalanceInterval",
+                type: "u64"
+            },
+            {
+                name: "rebalanceThreshold",
+                type: "u64"
+            },
+            {
+                name: "rebalanceSlippage",
+                type: "u64"
+            },
+            {
+                name: "lpOffsetThreshold",
+                type: "u64"
+            },
+            {
+                name: "fundLpFee",
+                type: "u64"
+            }
             ]
         },
         {
             name: "buyFund",
             accounts: [{
-                    name: "buyer",
-                    isMut: False,
-                    isSigner: False
-                },
-                {
-                    name: "fundState",
-                    isMut: False,
-                    isSigner: True
-                },
-                {
-                    name: "tokenInfo",
-                    isMut: True,
-                    isSigner: True
-                },
-                {
-                    name: "pdaAccount",
-                    isMut: True,
-                    isSigner: True
-                },
-                {
-                    name: "pdaUsdcAccount",
-                    isMut: False,
-                    isSigner: True
-                },
-                {
-                    name: "buyerUsdcAccount",
-                    isMut: False,
-                    isSigner: True
-                },
-                {
-                    name: "managerUsdcAccount",
-                    isMut: False,
-                    isSigner: True
-                },
-                {
-                    name: "smfFeeAccount",
-                    isMut: False,
-                    isSigner: True
-                },
-                {
-                    name: "hostUsdcAccount",
-                    isMut: False,
-                    isSigner: True
-                },
-                {
-                    name: "buyerFundTokenAccount",
-                    isMut: False,
-                    isSigner: True
-                },
-                {
-                    name: "buyState",
-                    isMut: False,
-                    isSigner: False
-                },
-                {
-                    name: "systemProgram",
-                    isMut: True,
-                    isSigner: True
-                },
-                {
-                    name: "tokenProgram",
-                    isMut: True,
-                    isSigner: True
-                }
+                name: "buyer",
+                isMut: false,
+                isSigner: false
+            },
+            {
+                name: "fundState",
+                isMut: false,
+                isSigner: true
+            },
+            {
+                name: "tokenInfo",
+                isMut: true,
+                isSigner: true
+            },
+            {
+                name: "pdaAccount",
+                isMut: true,
+                isSigner: true
+            },
+            {
+                name: "pdaUsdcAccount",
+                isMut: false,
+                isSigner: true
+            },
+            {
+                name: "buyerUsdcAccount",
+                isMut: false,
+                isSigner: true
+            },
+            {
+                name: "managerUsdcAccount",
+                isMut: false,
+                isSigner: true
+            },
+            {
+                name: "smfFeeAccount",
+                isMut: false,
+                isSigner: true
+            },
+            {
+                name: "hostUsdcAccount",
+                isMut: false,
+                isSigner: true
+            },
+            {
+                name: "buyerFundTokenAccount",
+                isMut: false,
+                isSigner: true
+            },
+            {
+                name: "buyState",
+                isMut: false,
+                isSigner: false
+            },
+            {
+                name: "systemProgram",
+                isMut: true,
+                isSigner: true
+            },
+            {
+                name: "tokenProgram",
+                isMut: true,
+                isSigner: true
+            }
             ],
             args: [{
                 name: "amount",
@@ -308,100 +311,100 @@
             name: "mintFund",
             accounts: [{
                 name: "signer",
-                isMut: False,
-                isSigner: False
+                isMut: false,
+                isSigner: false
             }, {
                 name: "buyer",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "fundState",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "tokenInfo",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }, {
                 name: "buyState",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "pdaAccount",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }, {
                 name: "buyerFundTokenAccount",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "fundToken",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "systemProgram",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }, {
                 name: "tokenProgram",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }],
             args: []
         }, {
             name: "swapFundTokens",
             accounts: [{
                 name: "buyer",
-                isMut: True,
-                isSigner: False
+                isMut: true,
+                isSigner: false
             }, {
                 name: "fundState",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "pdaAccount",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }, {
                 name: "pdaFromTokenAccount",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "buyerFromTokenAccount",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "pdaToTokenAccount",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "buyerToTokenAccount",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "swapFeeAccount",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "hostFeeAccount",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "managerFeeAccount",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "tokenInfo",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }, {
                 name: "curveData",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }, {
                 name: "tokenProgram",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }],
             args: [{
                 name: "fromTokenId",
@@ -420,40 +423,40 @@
             name: "sellFund",
             accounts: [{
                 name: "seller",
-                isMut: False,
-                isSigner: False
+                isMut: false,
+                isSigner: false
             }, {
                 name: "fundState",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "pdaAccount",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }, {
                 name: "newFundState",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "sellerFundTokenAccount",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "fundToken",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "systemProgram",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }, {
                 name: "tokenProgram",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }, {
                 name: "rent",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }],
             args: [{
                 name: "amount",
@@ -466,36 +469,36 @@
             name: "claimToken",
             accounts: [{
                 name: "manager",
-                isMut: False,
-                isSigner: False
+                isMut: false,
+                isSigner: false
             }, {
                 name: "fundState",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "tokenInfo",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }, {
                 name: "sellerTokenAccount",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "pdaTokenAccount",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "pdaAccount",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }, {
                 name: "systemProgram",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }, {
                 name: "tokenProgram",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }],
             args: [{
                 name: "tokenId",
@@ -505,44 +508,44 @@
             name: "claimTokenFromBuyState",
             accounts: [{
                 name: "signer",
-                isMut: False,
-                isSigner: False
+                isMut: false,
+                isSigner: false
             }, {
                 name: "buyer",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "fundState",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "buyState",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "tokenInfo",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }, {
                 name: "buyerTokenAccount",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "pdaTokenAccount",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "pdaAccount",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }, {
                 name: "systemProgram",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }, {
                 name: "tokenProgram",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }],
             args: [{
                 name: "tokenId",
@@ -552,60 +555,60 @@
             name: "updateCurrentWeights",
             accounts: [{
                 name: "fundState",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "tokenInfo",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }],
             args: []
         }, {
             name: "buyStateRebalance",
             accounts: [{
                 name: "fundState",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "buyState",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "tokenInfo",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }, {
                 name: "pythToken",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }, {
                 name: "pythUsdc",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }, {
                 name: "pdaAccount",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }, {
                 name: "pdaTokenAccount",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "pdaUsdcAccount",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "rebalanceFeeAccount",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "prismProgram",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }, {
                 name: "tokenProgram",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }],
             args: [{
                 name: "tokenId",
@@ -628,48 +631,48 @@
             name: "rebalanceToUsdc",
             accounts: [{
                 name: "signer",
-                isMut: False,
-                isSigner: False
+                isMut: false,
+                isSigner: false
             }, {
                 name: "fundState",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "tokenInfo",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }, {
                 name: "pythToken",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }, {
                 name: "pythUsdc",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }, {
                 name: "pdaAccount",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }, {
                 name: "pdaTokenAccount",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "pdaUsdcAccount",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "rebalanceFeeAccount",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "prismProgram",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }, {
                 name: "tokenProgram",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }],
             args: [{
                 name: "tokenId",
@@ -695,48 +698,48 @@
             name: "rebalanceFromUsdc",
             accounts: [{
                 name: "signer",
-                isMut: False,
-                isSigner: False
+                isMut: false,
+                isSigner: false
             }, {
                 name: "fundState",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "tokenInfo",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }, {
                 name: "pythToken",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }, {
                 name: "pythUsdc",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }, {
                 name: "pdaAccount",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }, {
                 name: "pdaTokenAccount",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "pdaUsdcAccount",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "rebalanceFeeAccount",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "prismProgram",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }, {
                 name: "tokenProgram",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }],
             args: [{
                 name: "tokenId",
@@ -762,48 +765,48 @@
             name: "reweight",
             accounts: [{
                 name: "signer",
-                isMut: False,
-                isSigner: False
+                isMut: false,
+                isSigner: false
             }, {
                 name: "fundState",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "tokenStats",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }],
             args: []
         }, {
             name: "refilter",
             accounts: [{
                 name: "signer",
-                isMut: False,
-                isSigner: False
+                isMut: false,
+                isSigner: false
             }, {
                 name: "fundState",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "tokenStats",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }],
             args: []
         }, {
             name: "addToken",
             accounts: [{
                 name: "owner",
-                isMut: False,
-                isSigner: False
+                isMut: false,
+                isSigner: false
             }, {
                 name: "tokenInfo",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "systemProgram",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }],
             args: [{
                 name: "tokenMint",
@@ -830,12 +833,12 @@
             name: "updateDatabase",
             accounts: [{
                 name: "owner",
-                isMut: False,
-                isSigner: False
+                isMut: false,
+                isSigner: false
             }, {
                 name: "database",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }],
             args: [{
                 name: "tokenId",
@@ -857,16 +860,16 @@
             name: "updateTokenStats",
             accounts: [{
                 name: "owner",
-                isMut: False,
-                isSigner: False
+                isMut: false,
+                isSigner: false
             }, {
                 name: "tokenStats",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "database",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }],
             args: [{
                 name: "startIndex",
@@ -879,12 +882,12 @@
             name: "updateCurveData",
             accounts: [{
                 name: "owner",
-                isMut: False,
-                isSigner: False
+                isMut: false,
+                isSigner: false
             }, {
                 name: "curveData",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }],
             args: [{
                 name: "startIndex",
@@ -908,168 +911,168 @@
             name: "initializeTokenInfo",
             accounts: [{
                 name: "owner",
-                isMut: False,
-                isSigner: False
+                isMut: false,
+                isSigner: false
             }, {
                 name: "tokenInfo",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "systemProgram",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }],
             args: []
         }, {
             name: "initializeDatabase",
             accounts: [{
                 name: "owner",
-                isMut: False,
-                isSigner: False
+                isMut: false,
+                isSigner: false
             }, {
                 name: "database",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "systemProgram",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }],
             args: []
         }, {
             name: "initializeTokenStats",
             accounts: [{
                 name: "owner",
-                isMut: False,
-                isSigner: False
+                isMut: false,
+                isSigner: false
             }, {
                 name: "tokenStats",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "systemProgram",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }],
             args: []
         }, {
             name: "initializeCurveData",
             accounts: [{
                 name: "owner",
-                isMut: False,
-                isSigner: False
+                isMut: false,
+                isSigner: false
             }, {
                 name: "curveData",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "systemProgram",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }],
             args: []
         }, {
             name: "closeDatabase",
             accounts: [{
                 name: "owner",
-                isMut: False,
-                isSigner: False
+                isMut: false,
+                isSigner: false
             }, {
                 name: "database",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "systemProgram",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }],
             args: []
         }, {
             name: "closeTokenStats",
             accounts: [{
                 name: "owner",
-                isMut: False,
-                isSigner: False
+                isMut: false,
+                isSigner: false
             }, {
                 name: "tokenStats",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "systemProgram",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }],
             args: []
         }, {
             name: "closeTokenInfo",
             accounts: [{
                 name: "owner",
-                isMut: False,
-                isSigner: False
+                isMut: false,
+                isSigner: false
             }, {
                 name: "tokenInfo",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "systemProgram",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }],
             args: []
         }, {
             name: "closeToken",
             accounts: [{
                 name: "owner",
-                isMut: False,
-                isSigner: False
+                isMut: false,
+                isSigner: false
             }, {
                 name: "pdaAccount",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }, {
                 name: "tokenAccount",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "systemProgram",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }, {
                 name: "tokenProgram",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }],
             args: []
         }, {
             name: "closeOpenOrders",
             accounts: [{
                 name: "owner",
-                isMut: False,
-                isSigner: False
+                isMut: false,
+                isSigner: false
             }, {
                 name: "pdaAccount",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "openOrders",
-                isMut: False,
-                isSigner: True
+                isMut: false,
+                isSigner: true
             }, {
                 name: "market",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }, {
                 name: "serumDex",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }, {
                 name: "serumSwapProgram",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }, {
                 name: "systemProgram",
-                isMut: True,
-                isSigner: True
+                isMut: true,
+                isSigner: true
             }],
             args: []
         }
