@@ -1,0 +1,1 @@
+{ swapProgram: e.config.swapProgramID, tokenProgram: u.TOKEN_PROGRAM_ID, swap: e.config.swapAccount, swapAuthority: e.config.authority, userAuthority: i, inputUserAccount: n, inputTokenAccount: s, outputUserAccount: o, outputTokenAccount: r, feesTokenAccount: a }
